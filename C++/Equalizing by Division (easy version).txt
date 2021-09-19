@@ -1,0 +1,35 @@
+//Fx
+#include <bits/stdc++.h>
+using namespace std;
+const int maxn = 2e5 + 1;
+int t[maxn], r[maxn], arr[maxn], n, k;
+int main()
+{
+    cin >> n >> k;
+    int res = maxn, a, cont;
+    for (int i = 1; i <= n; i++)
+        cin >> arr[i];
+    sort(arr + 1, arr + n + 1);
+    for (int i = 1; i <= n; i++)
+    {
+        a = arr[i];
+
+        cont = 0;
+        do
+        {
+            ++t[a];
+            r[a] += cont;
+
+            if (t[a] >= k)
+            {
+                res = min(res, r[a]);
+            }
+
+            a /= 2;
+            cont++;
+        }
+		while (a);
+    }
+
+    cout << res;
+}
