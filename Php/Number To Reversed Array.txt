@@ -1,0 +1,41 @@
+// Solution 1
+
+function convert($n) {
+  // Convert To Array
+  $arrayOfStrings = str_split($n);
+
+  // Convert Array Elements
+  $array = array_map('intval', $arrayOfStrings);
+
+  // Reverse Array
+  $array = array_reverse($array);
+  return $array;
+}
+
+echo '<pre>';
+var_dump(convert(529132));
+echo '</pre>';
+
+
+// Solution 2
+
+function convert($n) {
+  // Convert To Array
+  $arrayOfStrings = str_split($n);
+
+  // Create Empty Array
+  $empty = [];
+
+  // Loop on Array Of Strings
+  foreach ($arrayOfStrings as $str) :
+    array_push($empty, intval($str));
+  endforeach;
+
+  // Reverse Array
+  $array = array_reverse($empty);
+  return $array;
+}
+
+echo '<pre>';
+var_dump(convert(529132));
+echo '</pre>';
